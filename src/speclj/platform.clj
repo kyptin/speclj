@@ -1,6 +1,8 @@
 (ns speclj.platform
   (:require [clojure.java.io :as io]
-            [clojure.string :as string :refer [split]]))
+            [clojure.string :as string :refer [split]])
+  (:import speclj.platform.SpecFailure
+           speclj.platform.SpecPending))
 
 (defmacro if-cljs
   "Return then if we are generating cljs code and else for Clojure code.
