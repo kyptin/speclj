@@ -105,3 +105,4 @@
       (or (:speclj config) (:help config)) (usage nil)
       :else (or (do-specs config) 0))))
 
+(def -main run)

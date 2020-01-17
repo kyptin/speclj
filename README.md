@@ -1,3 +1,21 @@
+Fork of speclj by Jeff Terrell to add tools.deps support. Here's an example
+alias to add to your `deps.edn` file:
+
+```
+{
+ ,,,
+ :aliases
+ {,,,
+  :test {:extra-deps {speclj {:git/url "https://github.com/kyptin/speclj"
+                              :sha "<find the latest sha at that ^^ URL"}}
+         :extra-paths ["spec"]
+         :main-opts ["-m" "speclj.cli"]}
+ }
+}
+```
+
+The upstream README follows.
+
 # speclj [![Build Status](https://secure.travis-ci.org/slagyr/speclj.png?branch=master)](http://travis-ci.org/slagyr/speclj)
 ### (pronounced "speckle" [spek-uhl]) ###
 It's a TDD/BDD framework for [Clojure](http://clojure.org/) and [Clojurescript](http://clojurescript.org/), based on [RSpec](http://rspec.info/).
