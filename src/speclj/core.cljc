@@ -213,6 +213,14 @@
       (when (speclj.platform/difference-greater-than-delta? expected# actual# delta#)
         (-fail (str "Expected: " (-to-s expected#) speclj.platform/endl "     got: " (-to-s actual#) " (using delta: " delta# ")"))))))
 
+(defmacro should=*
+  "Like should=, but includes actual-form in the failure output."
+  ([expected-form actual-form]
+   `(let [expected# ~expected-form actual# ~actual-form]
+      (when-not (= expected# actual#)
+        (-fail (str "Expected: " (-to-s expected#) speclj.platform/endl
+                    "     got: " (-to-s actual#) " (input form was: " ~(str actual-form) ")"))))))
+
 (defmacro should-be
   "Asserts that a form satisfies a function."
   [f-form actual-form]
