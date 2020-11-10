@@ -6,7 +6,7 @@ alias to add to your `deps.edn` file:
  ,,,
  :aliases
  {,,,
-  :speclj {:extra-deps {speclj/speclj
+  :speclj {:extra-deps {kyptin/speclj
                         {:git/url "https://github.com/kyptin/speclj"
                          :sha "<find the latest sha at that ^^ URL>"}}
          :extra-paths ["spec" "classes"]}
