@@ -6,13 +6,26 @@ alias to add to your `deps.edn` file:
  ,,,
  :aliases
  {,,,
-  :test {:extra-deps {speclj {:git/url "https://github.com/kyptin/speclj"
-                              :sha "<find the latest sha at that ^^ URL"}}
-         :extra-paths ["spec"]
-         :main-opts ["-m" "speclj.cli"]}
+  :speclj {:extra-deps {speclj/speclj
+                        {:git/url "https://github.com/kyptin/speclj"
+                         :sha "<find the latest sha at that ^^ URL>"}}
+         :extra-paths ["spec" "classes"]}
+  :test {:main-opts ["-m" "speclj.cli"]}
  }
 }
 ```
+
+Also, before first use, you must:
+
+```
+mkdir classes
+clojure -M:speclj -e "(do (compile 'speclj.platform.SpecFailure)
+                          (compile 'speclj.platform.SpecPending))"
+```
+
+With both of those completed, to run tests, say:
+
+    clojure -M:speclj:test
 
 The upstream README follows.
 
