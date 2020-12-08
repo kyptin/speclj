@@ -105,4 +105,9 @@
       (or (:speclj config) (:help config)) (usage nil)
       :else (or (do-specs config) 0))))
 
-(def -main (comp System/exit (partial min 255) Math/abs run))
+(defn -main [& args]
+  (->> args
+       (apply run)
+       Math/abs
+       (min 255)
+       System/exit))
